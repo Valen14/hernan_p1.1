@@ -14,3 +14,11 @@ class Samples(Base):
     pressure=Column('pressure', Integer)
     windspeed=Column('windspeed', Integer)
 
+    def serilize(self):
+    	return{
+    		'id' : self.id,
+    		'temperatura' : self.temperature,
+    		'humedad' : self.humidity,
+    		'pressure' : self.pressure,
+    		'velocidaddelviento' : self.windspeed
+    	}

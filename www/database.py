@@ -5,6 +5,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
 import os
+import json
 
 class Database(object):
     session = None
@@ -23,10 +24,24 @@ class Database(object):
     ################################
 
     def get_last_ten(self):
-        session = self.get_session
+        promedio = Samples()
+        promedio.temperature = 0
+        promedio.humidity = 0
+        promedio.pressure = 0
+        promedio.windspeed = 0
+        session = self.get_session()
         diez = session.query(Samples).order_by(Samples.id.desc()).limit(10)
         session.close()
-        return diez 
+        for d in diez:
+            promedio.temperature = (promedio.temperature + d.temperature)
+            promedio.humidity = (promedio.humidity + d.humidity)
+            promedio.pressure = (promedio.pressure + d.pressure)
+            promedio.windspeed = (promedio.windspeed + d.windspeed)
+        promedio.temperature = (promedio.temperature/10)
+        promedio.humidity = (promedio.humidity/10)
+        promedio.pressure = (promedio.pressure/10)
+        promedio.windspeed = (promedio.windspeed/10)
+        return promedio
     ################################
 
     def get_session(self):

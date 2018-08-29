@@ -12,19 +12,34 @@
     <title>Estacion Meteorologica</title>
 </head>
     
-    <h1> la ultima medida de la estacion meteorologica es de </h1>
-    <h5> Temperatura: {{ l.temperature }} </h5>
-    <h5> Presion: {{ l.pressure }} </h5>
-    <h5> Humedad: {{ l.humidity }} </h5>
-    <h5> Velocidad del viento: {{ l.windspeed }} </h5>
+    
+
  
 <body>
+<h1> la ultima medida de la estacion meteorologica es de </h1>
+    <h5> Temperatura: {{ l.temperature }} </h5>
+    <h5> Humedad: {{ l.humidity }} </h5>
+    <h5> Presion: {{ l.pressure }} </h5>
+    <h5> Velocidad del viento: {{ l.windspeed }} </h5>
+
+    <h1> Promedio de las ultimas 10 medidas tomadas por la esatacion meteorologica </h1>
+    <h5> Temperatura = {{t.temperature}} </h5>
+    <h5> Humedad = {{t.humidity}} </h5>
+    <h5> Presion Atmosferica = {{t.pressure}} </h5>
+    <h5> Velocidad del Viento = {{t.windspeed}} </h5>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    var int=self.setInterval("refresh()",1000);
+    function refresh()
+    {
+        location.reload(true);
+    }
+</script>
 
 </body>
 
